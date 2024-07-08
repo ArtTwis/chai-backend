@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { SALT } from "../constants";
+import { SALT } from "../constants.js";
 
 const UserSchema = new mongoose.Schema(
   {

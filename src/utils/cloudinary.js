@@ -17,9 +17,8 @@ export const uploadFileOnCloudinary = async (localFilePath) => {
     });
 
     // file has uploaded successfully..
-    console.log("File uploaded successfully :", response);
+    fs.unlinkSync(localFilePath);
 
-    // return response
     return response;
   } catch (error) {
     // removed the local saved temprary saved file
