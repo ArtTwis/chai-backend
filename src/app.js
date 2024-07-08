@@ -29,4 +29,14 @@ app.use(express.static("public"));
 
 app.use(cookieParser());
 
+/*==============
+==Import Routes==
+==============*/
+import userRouter from "./routes/user.routes.js";
+
+/*==============
+Routes Decelaration
+==============*/
+app.use("/api/v1/users", userRouter);
+
 export default app;
