@@ -1,6 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import ApiResponse from "./utils/ApiResponse.js";
 
 const app = express();
 
@@ -28,6 +29,22 @@ app.use(
 app.use(express.static("public"));
 
 app.use(cookieParser());
+
+//  Handle invalid request
+app.use((req, res) => {
+  // Invalid request
+  res.status(404).json(
+    new ApiResponse(
+      404,
+      {
+        success: false,
+        message:
+          "Uh-oh! It seems you've wandered off course. Let's steer you back to safety",
+      },
+      "Uh-oh! It seems you've wandered off course. Let's steer you back to safety"
+    )
+  );
+});
 
 /*==============
 ==Import Routes==
