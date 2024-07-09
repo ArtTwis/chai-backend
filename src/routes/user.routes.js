@@ -17,6 +17,12 @@ import { verifyJwtToken } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
+/*
+================
+UnSecured Routes
+================
+*/
+
 router.route("/register").post(
   upload.fields([
     {
@@ -60,5 +66,11 @@ router
 router.route("/channel/:username").get(verifyJwtToken, getUserChannelProfile);
 
 router.route("/watchHistory").get(verifyJwtToken, getWatchHistory);
+
+/*
+================
+==Export router=
+================
+*/
 
 export default router;
