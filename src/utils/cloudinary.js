@@ -26,3 +26,11 @@ export const uploadFileOnCloudinary = async (localFilePath) => {
     return null;
   }
 };
+
+export const deleteAssetOnCloudinary = async (oldAssetPath) => {
+  const response = await cloudinary.uploader.destroy(oldAssetPath, {
+    resource_type: "auto",
+  });
+
+  return response;
+};
